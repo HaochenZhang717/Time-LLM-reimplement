@@ -13,7 +13,7 @@ comment='TimeLLM-ETTh1'
 
 
 export MASTER_PORT=29500
-export CUDA_VISIBLE_DEVICES=0,1,2,3
+export CUDA_VISIBLE_DEVICES=1,2,3,4
 
 export HF_HOME=/playpen/haochenz/hf_cache
 export HF_TOKEN=$(cat ~/.cache/huggingface/token)
