@@ -18,7 +18,11 @@ export HF_HOME=/playpen/haochenz/hf_cache
 export HF_TOKEN=$(cat ~/.cache/huggingface/token)
 export HUGGINGFACE_HUB_TOKEN=$HF_TOKEN
 
-accelerate launch --mixed_precision bf16 --num_processes $num_process --main_process_port $master_port run_main.py \
+
+torchrun \
+  --nproc_per_node=$num_process \
+  --master_port=$master_port \
+  run_main.py \
   --task_name long_term_forecast \
   --is_training 1 \
   --root_path ./dataset/ETT-small/ \
