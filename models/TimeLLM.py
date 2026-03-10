@@ -44,7 +44,7 @@ class Model(nn.Module):
             # self.llama_config = LlamaConfig.from_pretrained('/mnt/alps/modelhub/pretrained_model/LLaMA/7B_hf/')
             # self.llama_config = LlamaConfig.from_pretrained('huggyllama/llama-7b')
             # self.llama_config = LlamaConfig.from_pretrained('meta-llama/Llama-2-7b-hf')
-            self.llama_config = LlamaConfig.from_pretrained('meta-llama/Llama-3.2-1B')
+            self.llama_config = LlamaConfig.from_pretrained('TinyLlama/TinyLlama_v1.1')
             self.llama_config.num_hidden_layers = configs.llm_layers
             self.llama_config.output_attentions = True
             self.llama_config.output_hidden_states = True
@@ -59,12 +59,12 @@ class Model(nn.Module):
             #     trust_remote_code=True)
 
             self.llm_model = LlamaModel.from_pretrained(
-                'meta-llama/Llama-3.2-1B',
+                'TinyLlama/TinyLlama_v1.1',
                 trust_remote_code=True,
                 config=self.llama_config)
 
             self.tokenizer = LlamaTokenizer.from_pretrained(
-                'meta-llama/Llama-3.2-1B',
+                'TinyLlama/TinyLlama_v1.1',
                 trust_remote_code=True)
 
             # try:
