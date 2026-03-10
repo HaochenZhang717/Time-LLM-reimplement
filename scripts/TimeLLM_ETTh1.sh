@@ -14,15 +14,12 @@ comment='TimeLLM-ETTh1'
 
 export MASTER_PORT=29500
 export CUDA_VISIBLE_DEVICES=0,1,2,3
+
 export HF_HOME=/playpen/haochenz/hf_cache
 export HF_TOKEN=$(cat ~/.cache/huggingface/token)
 export HUGGINGFACE_HUB_TOKEN=$HF_TOKEN
 
-
-torchrun \
-  --nproc_per_node=$num_process \
-  --master_port=$master_port \
-  run_main.py \
+accelerate launch --mixed_precision bf16 --num_processes $num_process --main_process_port $master_port run_main.py \
   --task_name long_term_forecast \
   --is_training 1 \
   --root_path ./dataset/ETT-small/ \
