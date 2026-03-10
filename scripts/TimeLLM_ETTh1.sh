@@ -4,8 +4,8 @@ learning_rate=0.01
 llama_layers=32
 
 master_port=29500
-num_process=4
-batch_size=24
+num_process=2
+batch_size=4
 d_model=32
 d_ff=128
 
