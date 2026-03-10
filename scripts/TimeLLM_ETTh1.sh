@@ -22,6 +22,7 @@ export HUGGINGFACE_HUB_TOKEN=$HF_TOKEN
 accelerate launch --mixed_precision bf16 --num_processes $num_process --main_process_port $master_port run_main.py \
   --task_name long_term_forecast \
   --is_training 1 \
+  --llm_dim 2048 \
   --root_path ./dataset/ETT-small/ \
   --data_path ETTh1.csv \
   --model_id ETTh1_512_96 \
